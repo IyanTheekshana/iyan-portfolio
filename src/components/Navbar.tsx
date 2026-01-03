@@ -53,9 +53,10 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-4">
             <div className="flex items-center gap-2 rounded-full border border-border bg-white/80 px-3 py-1.5 text-foreground shadow-sm">
               {navigation.links.map((link) => (
+                // Normalize hash links to root to avoid keeping query params on nested routes
                 <Link
                   key={link.name}
-                  href={link.href}
+                  href={link.href.startsWith("#") ? `/${link.href}` : link.href}
                   className="px-2 py-1 rounded-full text-sm font-medium text-foreground/70 hover:text-foreground hover:bg-primary/10 transition-colors whitespace-nowrap"
                 >
                   {labelFor(link.href, link.name)}
@@ -68,7 +69,7 @@ export default function Navbar() {
                 {navbarCopy.availability}
               </span>
               <Link
-                href="#contact"
+                href="/#contact"
                 className="sheen inline-flex items-center gap-2 rounded-full bg-primary text-white px-4 py-2 text-sm font-semibold shadow-sm hover:-translate-y-0.5 transition-all whitespace-nowrap"
               >
                 <Sparkles size={16} />
@@ -104,7 +105,7 @@ export default function Navbar() {
             {navigation.links.map((link) => (
               <Link
                 key={link.name}
-                href={link.href}
+                href={link.href.startsWith("#") ? `/${link.href}` : link.href}
                 onClick={() => setIsOpen(false)}
                 className="block text-foreground/80 hover:text-foreground hover:bg-primary/10 px-3 py-2 rounded-md text-base font-semibold whitespace-nowrap"
               >
@@ -112,7 +113,7 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="#contact"
+              href="/#contact"
               onClick={() => setIsOpen(false)}
               className="block mt-2 text-center rounded-2xl bg-primary hover:bg-primary/90 px-3 py-3 font-semibold text-white shadow-sm whitespace-nowrap"
             >
