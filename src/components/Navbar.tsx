@@ -39,11 +39,11 @@ export default function Navbar() {
             <span className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary font-bold">
               IT
             </span>
-            <div className="hidden sm:flex flex-col leading-tight">
+            <div className="flex flex-col leading-tight text-left">
               <span className="text-xs uppercase tracking-[0.16em] text-foreground/60 whitespace-nowrap">
                 {navbarCopy.brandSubtitle}
               </span>
-              <span className="text-foreground whitespace-nowrap">
+              <span className="text-sm sm:text-base text-foreground whitespace-nowrap">
                 {personal.name}
               </span>
             </div>
@@ -85,8 +85,15 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          {/* Mobile actions */}
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              onClick={toggleLanguage}
+              className="island px-3 py-1.5 rounded-full text-xs font-semibold text-foreground/80 hover:text-primary transition-colors border border-border bg-white"
+              aria-label="Cambia lingua"
+            >
+              {navbarCopy.langToggleLabel ?? (language === "ita" ? "EN" : "IT")}
+            </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-xl text-foreground hover:text-primary focus:outline-none island bg-white border border-border"
@@ -119,16 +126,6 @@ export default function Navbar() {
             >
               {navbarCopy.cta}
             </Link>
-            <button
-              onClick={() => {
-                toggleLanguage();
-                setIsOpen(false);
-              }}
-              className="mt-2 w-full text-center rounded-2xl border border-border px-3 py-3 font-semibold text-foreground bg-white hover:bg-primary/10"
-              aria-label="Cambia lingua"
-            >
-              {navbarCopy.langToggleLabel ?? (language === "ita" ? "EN" : "IT")}
-            </button>
           </div>
         </div>
       )}
