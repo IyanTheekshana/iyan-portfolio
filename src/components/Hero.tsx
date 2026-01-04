@@ -1,11 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { content, localized } from "@/lib/data";
-import { useCopy, useCopyContext } from "@/lib/copy-context";
-import { ArrowRight, Sparkles } from "lucide-react";
 import { GlossaryText } from "@/components/GlossaryText";
+import { useCopy, useCopyContext } from "@/lib/copy-context";
+import { content, localized } from "@/lib/data";
+import { motion } from "framer-motion";
+import { ArrowRight, Sparkles } from "lucide-react";
+import Link from "next/link";
 
 export default function Hero() {
   const { personal } = content;

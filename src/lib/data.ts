@@ -740,7 +740,7 @@ export const copyEng = {
     },
   },
   hero: {
-    badge: "Projects",
+    badge: "Portfolio",
     ctaPrimary: "Book a call",
     ctaSecondary: "View projects",
     leadSuffix:
