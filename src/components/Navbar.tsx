@@ -3,6 +3,7 @@
 import { Menu, Sparkles, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { GlossaryText } from "@/components/GlossaryText";
 import { content } from "@/lib/data";
 import { useCopyContext } from "@/lib/copy-context";
 
@@ -44,7 +45,7 @@ export default function Navbar() {
                 {navbarCopy.brandSubtitle}
               </span>
               <span className="text-sm sm:text-base text-foreground whitespace-nowrap">
-                {personal.name}
+                <GlossaryText text={personal.name} />
               </span>
             </div>
           </Link>

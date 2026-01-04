@@ -10,6 +10,14 @@ export type GlossaryTerm = {
 
 export const glossaryTerms: GlossaryTerm[] = [
   {
+    key: "iyan-theekshana",
+    label: "Iyan Theekshana",
+    description: {
+      ita: "ඉයන් තීක්ෂන, nato il 26/08/1998 a Colombo, Sri Lanka perla dell'Oceano Indiano.",
+      eng: "ඉයන් තීක්ෂන, born on 26/08/1998 in Colombo, Sri Lanka, pearl of the Indian Ocean.",
+    },
+  },
+  {
     key: "dx",
     label: "DX",
     description: {

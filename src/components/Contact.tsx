@@ -2,6 +2,7 @@
 
 import { useCopy } from "@/lib/copy-context";
 import { content } from "@/lib/data";
+import { GlossaryText } from "@/components/GlossaryText";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import { FormEvent, useRef, useState } from "react";
@@ -80,7 +81,7 @@ export default function Contact() {
               IT
             </div>
             <h3 className="mt-6 text-3xl font-semibold text-secondary">
-              {personal.name}
+              <GlossaryText text={personal.name} />
             </h3>
             <p className="text-foreground/60 text-lg mt-1">{personal.role}</p>
             <p className="mt-4 text-foreground/60 max-w-md mx-auto">

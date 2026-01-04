@@ -120,7 +120,7 @@ export default function Hero() {
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <p className="text-sm text-white font-medium mb-1">
-                    {personal.name}
+                    <GlossaryText text={personal.name} />
                   </p>
                   <p className="text-2xl font-semibold text-secondary">
                     {personal.role}

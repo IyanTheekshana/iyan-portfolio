@@ -1,6 +1,7 @@
 "use client";
 
 import { useCopy } from "@/lib/copy-context";
+import { GlossaryText } from "@/components/GlossaryText";
 import { content } from "@/lib/data";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 
@@ -37,8 +38,8 @@ export default function Footer() {
             </a>
           </div>
           <p className="text-foreground/60 text-sm">
-            &copy; {new Date().getFullYear()} {personal.name}.{" "}
-            {footerCopy.rights}
+            &copy; {new Date().getFullYear()}{" "}
+            <GlossaryText text={personal.name} />. {footerCopy.rights}
           </p>
         </div>
       </div>
