@@ -51,7 +51,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4">
             <div className="flex items-center gap-2 rounded-full border border-border bg-white/80 px-3 py-1.5 text-foreground shadow-sm">
               {navigation.links.map((link) => (
                 // Normalize hash links to root to avoid keeping query params on nested routes
@@ -87,7 +87,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile actions */}
-          <div className="md:hidden flex items-center gap-2">
+          <div className="lg:hidden flex items-center gap-2">
             <button
               onClick={toggleLanguage}
               className="island px-3 py-1.5 rounded-full text-xs font-semibold text-foreground/80 hover:text-primary transition-colors border border-border bg-white"
@@ -108,7 +108,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden glass-panel mx-4 mt-2 rounded-2xl border border-border bg-white/95 backdrop-blur-md shadow-lg">
+        <div className="lg:hidden glass-panel mx-4 mt-2 rounded-2xl border border-border bg-white/95 backdrop-blur-md shadow-lg">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navigation.links.map((link) => (
               <Link
