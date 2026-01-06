@@ -21,15 +21,15 @@ export const metadata: Metadata = {
   title: "Iyan Theekshana | Web designer & developer",
   description:
     "Siti web essenziali per brand e PMI: design, sviluppo Next.js/React, handoff e cura continua.",
+  verification: {
+    google: "iv4xz7NfdtVpI6PthR0aOD-_ceDY2D4VwVTzG04Zd40",
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", rel: "icon", sizes: "any" },
       { url: "/favicon.ico", rel: "shortcut icon" },
     ],
     apple: "/favicon.ico",
-  },
-  verification: {
-    google: "iv4xz7NfdtVpI6PthR0aOD-_ceDY2D4VwVTzG04Zd40",
   },
 };
 
