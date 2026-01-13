@@ -49,11 +49,11 @@ export default function Services() {
                 <div className="absolute top-0 right-0 w-24 h-24 bg-primary/10 blur-2xl rounded-full group-hover:bg-primary/20 transition-all duration-500" />
 
                 <div className="flex flex-col h-full relative z-10">
-                  <div className="flex items-start justify-between mb-8">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
                     <div className="h-14 w-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-500">
                       <Sparkles size={28} />
                     </div>
-                    <span className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 border border-white/5 bg-white/5 text-[11px] font-bold text-secondary uppercase tracking-widest">
+                    <span className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 border border-white/5 bg-white/5 text-[10px] sm:text-[11px] font-bold text-secondary uppercase tracking-widest whitespace-nowrap">
                       <Clock size={14} className="text-primary" /> {service.timeline}
                     </span>
                   </div>

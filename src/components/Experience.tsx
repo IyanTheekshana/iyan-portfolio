@@ -67,7 +67,7 @@ export default function Experience() {
                   className="group relative"
                 >
                   <div className="glass-card rounded-[32px] p-8 border border-white/10 bg-black/20 hover:border-primary/50 transition-all duration-500">
-                    <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
                       <div className="space-y-1">
                         <p className="text-[11px] uppercase tracking-[0.2em] font-bold text-primary">
                           {job.company}
@@ -76,14 +76,14 @@ export default function Experience() {
                           {job.role}
                         </h4>
                       </div>
-                      <div className="flex flex-wrap gap-2">
-                        <span className="inline-flex items-center gap-2 rounded-xl bg-white/5 px-4 py-2 border border-white/10 text-[10px] font-bold uppercase tracking-widest text-white/70">
+                      <div className="flex flex-col xs:flex-row flex-wrap gap-2 w-full sm:w-auto">
+                        <span className="inline-flex items-center gap-2 rounded-xl bg-white/5 px-4 py-2 border border-white/10 text-[10px] font-bold uppercase tracking-widest text-white/70 whitespace-nowrap">
                           <Calendar size={14} className="text-primary" />
                           {job.period}
                         </span>
                         <span className="inline-flex items-center gap-2 rounded-xl bg-white/5 px-4 py-2 border border-white/10 text-[10px] font-bold uppercase tracking-widest text-white/70">
                           <MapPin size={14} className="text-primary" />
-                          {job.location}
+                          <span className="truncate max-w-[150px] xs:max-w-none">{job.location}</span>
                         </span>
                       </div>
                     </div>

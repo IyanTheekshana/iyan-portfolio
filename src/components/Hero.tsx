@@ -34,7 +34,7 @@ export default function Hero() {
             </motion.div>
 
             <div className="space-y-6">
-              <h1 className="text-4xl sm:text-7xl lg:text-8xl font-heading font-black leading-[1.1] sm:leading-[0.95] tracking-tighter">
+              <h1 className="text-2xl sm:text-7xl lg:text-8xl font-heading font-black leading-[1.1] sm:leading-[0.95] tracking-tighter">
                 {heroLocale.headline.split(" ").map((word, i) => (
                   <motion.span
                     key={i}
@@ -55,7 +55,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="text-lg sm:text-2xl text-white/90 max-w-2xl font-light leading-relaxed drop-shadow-sm"
+                className="text-base sm:text-2xl text-white/90 max-w-2xl font-light leading-relaxed drop-shadow-sm"
               >
                 {heroLocale.subline}
               </motion.p>
@@ -65,26 +65,26 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="flex flex-wrap gap-4"
+              className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
             >
               <Link
                 href="#contact"
-                className="group relative px-8 py-4 bg-primary text-black rounded-xl font-bold transition-all hover:scale-105 active:scale-95 shadow-[0_0_25px_rgba(255,255,0,0.3)] overflow-hidden"
+                className="group relative px-8 py-4 bg-primary text-black rounded-xl font-bold transition-all hover:scale-105 active:scale-95 shadow-[0_0_25px_rgba(255,255,0,0.3)] overflow-hidden text-center"
               >
-                <span className="relative z-10 flex items-center gap-2">
+                <span className="relative z-10 flex items-center gap-2 justify-center">
                   {heroCopy.ctaPrimary} <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </span>
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               </Link>
               <Link
                 href="#projects"
-                className="px-8 py-4 border border-white/20 bg-white/5 hover:bg-white/10 rounded-xl font-bold transition-all text-white"
+                className="px-8 py-4 border border-white/20 bg-white/5 hover:bg-white/10 rounded-xl font-bold transition-all text-white text-center"
               >
                 {heroCopy.ctaSecondary}
               </Link>
             </motion.div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-8 border-t border-white/10">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-8 border-t border-white/10">
               {heroLocale.stats.map((item, idx) => (
                 <motion.div
                   key={item.label}
@@ -92,11 +92,12 @@ export default function Hero() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 1 + idx * 0.1 }}
+                  className={idx === 2 ? "col-span-2 md:col-span-1" : ""}
                 >
-                  <p className="text-[11px] uppercase tracking-[0.2em] font-bold text-primary mb-1">
+                  <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-bold text-primary mb-1">
                     {item.label}
                   </p>
-                  <p className="text-3xl font-heading font-black text-white">
+                  <p className="text-2xl sm:text-3xl font-heading font-black text-white">
                     {item.value}
                   </p>
                 </motion.div>
@@ -120,7 +121,7 @@ export default function Hero() {
                   </div>
                   <div>
                     <h3 className="text-2xl font-heading font-bold text-white leading-tight">
-                      {personal.role}
+                      <GlossaryText text={personal.name} />
                     </h3>
                     <p className="text-sm font-medium text-primary uppercase tracking-widest">
                       Digital Alchemist

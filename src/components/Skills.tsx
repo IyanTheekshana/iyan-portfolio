@@ -105,7 +105,7 @@ export default function Skills() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
                 {category.items.map((name) => {
                   const skill = skillLookup[name];
                   if (!skill) return null;
@@ -113,7 +113,7 @@ export default function Skills() {
                   return (
                     <div
                       key={name}
-                      className="group relative p-6 rounded-[28px] bg-white/[0.03] border border-white/10 hover:border-primary/40 transition-all duration-500 hover:-translate-y-2 overflow-hidden"
+                      className="group relative p-4 sm:p-6 rounded-[24px] sm:rounded-[28px] bg-white/[0.03] border border-white/10 hover:border-primary/40 transition-all duration-500 hover:-translate-y-2 overflow-hidden"
                     >
                       <div className="absolute -inset-1 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 

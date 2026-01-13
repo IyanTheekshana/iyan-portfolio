@@ -80,44 +80,43 @@ export default function Contact() {
             transition={{ duration: 0.8 }}
             className="flex flex-col gap-8"
           >
-            <div className="glass-card rounded-[40px] p-10 relative overflow-hidden group border border-white/5">
+            <div className="glass-card rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 relative overflow-hidden group border border-white/5">
               <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 blur-3xl -z-10 group-hover:bg-primary/20 transition-all duration-700" />
 
-              <div className="flex items-center gap-6 mb-10">
-                <div className="h-20 w-20 rounded-3xl bg-primary/20 border border-primary/30 flex items-center justify-center font-black text-3xl text-primary shadow-glow italic">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 mb-8 sm:mb-10 text-center sm:text-left">
+                <div className="h-16 w-16 sm:h-20 sm:w-20 rounded-2xl sm:rounded-3xl bg-primary/20 border border-primary/30 flex items-center justify-center font-black text-2xl sm:text-3xl text-primary shadow-glow italic shrink-0">
                   IT
                 </div>
                 <div>
-                  <h3 className="text-3xl font-heading font-black text-white tracking-tight">
+                  <h3 className="text-2xl sm:text-3xl font-heading font-black text-white tracking-tight">
                     <GlossaryText text={personal.name} />
                   </h3>
-                  <p className="text-primary font-bold uppercase tracking-[0.2em] text-xs mt-1">{personal.role}</p>
                 </div>
               </div>
 
               <div className="space-y-4">
                 <a
                   href={`mailto:${personal.email}`}
-                  className="flex items-center gap-5 p-5 rounded-3xl bg-white/5 border border-white/5 hover:border-primary/30 transition-all group/link"
+                  className="flex items-center gap-4 sm:gap-5 p-4 sm:p-5 rounded-2xl sm:rounded-3xl bg-white/5 border border-white/5 hover:border-primary/30 transition-all group/link overflow-hidden"
                 >
-                  <div className="h-12 w-12 rounded-2xl bg-white/5 flex items-center justify-center text-primary group-hover/link:bg-primary group-hover/link:text-white transition-all duration-500 shadow-glow">
-                    <FaEnvelope size={20} />
+                  <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-xl sm:rounded-2xl bg-white/5 flex items-center justify-center text-primary group-hover/link:bg-primary group-hover/link:text-white transition-all duration-500 shadow-glow shrink-0">
+                    <FaEnvelope size={18} className="sm:size-20" />
                   </div>
-                  <div className="flex flex-col">
-                    <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-secondary/40">Email</span>
-                    <span className="text-base font-bold text-white group-hover/link:text-primary transition-colors">{personal.email}</span>
+                  <div className="flex flex-col min-w-0">
+                    <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.2em] font-bold text-secondary/40">Email</span>
+                    <span className="text-sm sm:text-base font-bold text-white group-hover/link:text-primary transition-colors truncate">{personal.email}</span>
                   </div>
                 </a>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <a
                     href={personal.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-5 rounded-3xl bg-white/5 border border-white/5 hover:border-primary/30 transition-all group/link"
+                    className="flex items-center gap-4 p-4 sm:p-5 rounded-2xl sm:rounded-3xl bg-white/5 border border-white/5 hover:border-primary/30 transition-all group/link"
                   >
-                    <div className="h-12 w-12 rounded-2xl bg-white/5 flex items-center justify-center text-primary group-hover/link:bg-primary group-hover/link:text-white transition-all duration-500 shadow-glow">
-                      <FaLinkedin size={20} />
+                    <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-xl sm:rounded-2xl bg-white/5 flex items-center justify-center text-primary group-hover/link:bg-primary group-hover/link:text-white transition-all duration-500 shadow-glow shrink-0">
+                      <FaLinkedin size={18} className="sm:size-20" />
                     </div>
                     <div>
                       <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-secondary/40 whitespace-nowrap">LinkedIn</span>
@@ -127,10 +126,10 @@ export default function Contact() {
                     href={personal.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-5 rounded-3xl bg-white/5 border border-white/5 hover:border-primary/30 transition-all group/link"
+                    className="flex items-center gap-4 p-4 sm:p-5 rounded-2xl sm:rounded-3xl bg-white/5 border border-white/5 hover:border-primary/30 transition-all group/link"
                   >
-                    <div className="h-12 w-12 rounded-2xl bg-white/5 flex items-center justify-center text-primary group-hover/link:bg-primary group-hover/link:text-white transition-all duration-500 shadow-glow">
-                      <FaGithub size={20} />
+                    <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-xl sm:rounded-2xl bg-white/5 flex items-center justify-center text-primary group-hover/link:bg-primary group-hover/link:text-white transition-all duration-500 shadow-glow shrink-0">
+                      <FaGithub size={18} className="sm:size-20" />
                     </div>
                     <div>
                       <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-secondary/40 whitespace-nowrap">GitHub</span>

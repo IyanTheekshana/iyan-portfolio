@@ -21,6 +21,7 @@
     --grid-line: rgba(255, 255, 255, 0.1);
   }
 
+  html,
   body {
     background-color: var(--background);
     background-image:
@@ -31,7 +32,17 @@
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    width: 100%;
+    position: relative;
     scroll-behavior: smooth;
+  }
+
+  @media (max-width: 640px) {
+
+    html,
+    body {
+      background-image: none !important;
+    }
   }
 
   h1,
@@ -42,6 +53,10 @@
   h6 {
     font-family: var(--font-heading);
     color: var(--foreground);
+  }
+
+  section {
+    scroll-margin-top: 100px;
   }
 }
 
@@ -56,13 +71,17 @@
     box-shadow: var(--shadow);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     transform: translateZ(0);
-    /* Force GPU */
+    will-change: transform, opacity;
   }
 
   @media (max-width: 640px) {
     .glass-card {
-      backdrop-filter: blur(8px) saturate(150%);
-      -webkit-backdrop-filter: blur(8px) saturate(150%);
+      backdrop-filter: blur(6px) saturate(140%);
+      -webkit-backdrop-filter: blur(6px) saturate(140%);
+    }
+
+    section {
+      scroll-margin-top: 80px;
     }
   }
 
@@ -78,6 +97,7 @@
 
   .text-gradient {
     background: linear-gradient(135deg, #fff 0%, #ffff00 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 0 30px rgba(255, 255, 0, 0.3));
@@ -86,7 +106,15 @@
   .section-shell {
     max-width: 80rem;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  @media (min-width: 640px) {
+    .section-shell {
+      padding: 0 1.5rem;
+    }
   }
 
   .glow-mesh {
@@ -94,6 +122,13 @@
       radial-gradient(circle at 0% 0%, rgba(255, 255, 0, 0.1), transparent 40%),
       radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.05), transparent 40%);
     transform: translateZ(0);
+    will-change: background;
+  }
+
+  @media (max-width: 640px) {
+    .glow-mesh {
+      background: radial-gradient(circle at 50% 0%, rgba(255, 255, 0, 0.08), transparent 60%);
+    }
   }
 
   @media (min-width: 1024px) {

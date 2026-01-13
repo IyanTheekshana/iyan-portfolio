@@ -27,7 +27,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 px-4 sm:px-6 pt-6 ${scrolled ? "translate-y-0" : "translate-y-0"
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 px-4 sm:px-6 pt-4 sm:pt-6 ${scrolled ? "translate-y-0" : "translate-y-0"
         }`}
     >
       <div className="section-shell max-w-6xl mx-auto">
@@ -47,7 +47,7 @@ export default function Navbar() {
             </div>
             <div className="flex flex-col leading-none">
               <span className="text-[9px] uppercase tracking-[0.3em] text-primary font-bold">
-                {personal.role}
+                {navbarCopy.brandSubtitle}
               </span>
               <span className="text-sm whitespace-nowrap group-hover:text-primary transition-colors text-white">
                 <GlossaryText text={personal.name} />

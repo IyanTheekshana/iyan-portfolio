@@ -16,7 +16,6 @@ import { TbBrandCSharp } from "react-icons/tb";
 export const content = {
   personal: {
     name: "Iyan Theekshana",
-    role: "Web designer & developer",
     email: "iyan.dev123@gmail.com",
     linkedin: "https://www.linkedin.com/in/iyan-theekshana/",
     github: "https://github.com/IyanTheekshana",
