@@ -11,12 +11,12 @@ const config: Config = {
             colors: {
                 background: "var(--background)",
                 foreground: "var(--foreground)",
-                primary: "#0F766E", // Petrol primary for CTA
-                secondary: "#0F172A", // Deep ink for headings
-                accent: "#F59E0B", // Warm accent for highlights
-                muted: "#E5E7EB", // Light gray surfaces
-                card: "#FFFFFF",
-                border: "#D7DDE5",
+                primary: "var(--primary)",
+                secondary: "var(--secondary)",
+                accent: "var(--accent)",
+                panel: "var(--panel)",
+                border: "var(--border)",
+                card: "var(--card)",
             },
             fontFamily: {
                 heading: ["var(--font-heading)", "system-ui", "sans-serif"],

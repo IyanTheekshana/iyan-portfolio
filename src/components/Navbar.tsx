@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { GlossaryText } from "@/components/GlossaryText";
 import { content } from "@/lib/data";
 import { useCopyContext } from "@/lib/copy-context";
+import { motion } from "framer-motion";
 
 export default function Navbar() {
   const { personal, navigation } = content;
@@ -26,81 +27,80 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${scrolled
-        ? "backdrop-blur-md bg-white/90 border-b border-border shadow-[0_10px_30px_-24px_rgba(15,23,42,0.35)]"
-        : "bg-transparent"
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 px-4 sm:px-6 pt-6 ${scrolled ? "translate-y-0" : "translate-y-0"
         }`}
     >
-      <div className="section-shell">
-        <div className="flex items-center justify-between gap-4 py-4">
+      <div className="section-shell max-w-6xl mx-auto">
+        <div
+          className={`flex items-center justify-between gap-6 px-6 py-2 transition-all duration-500 rounded-2xl border ${scrolled
+            ? "bg-panel/80 backdrop-blur-xl border-white/10 shadow-glow"
+            : "bg-transparent border-transparent"
+            }`}
+        >
           <Link
             href="/"
-            className="flex items-center gap-3 text-lg font-semibold tracking-tight text-foreground"
+            className="flex items-center gap-3 text-lg font-heading font-black tracking-tighter text-white group"
           >
-            <span className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary font-bold">
+            <div className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-white font-bold transition-transform group-hover:scale-110">
               IT
-            </span>
-            <div className="flex flex-col leading-tight text-left">
-              <span className="text-xs uppercase tracking-[0.16em] text-foreground/60 whitespace-nowrap">
-                {navbarCopy.brandSubtitle}
+              <div className="absolute inset-0 bg-primary/20 animate-ping rounded-xl -z-10" />
+            </div>
+            <div className="flex flex-col leading-none">
+              <span className="text-[9px] uppercase tracking-[0.3em] text-primary font-bold">
+                {personal.role}
               </span>
-              <span className="text-sm sm:text-base text-foreground whitespace-nowrap">
+              <span className="text-sm whitespace-nowrap group-hover:text-primary transition-colors text-white">
                 <GlossaryText text={personal.name} />
               </span>
             </div>
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center gap-4">
-            <div className="flex items-center gap-2 rounded-full border border-border bg-white/80 px-3 py-1.5 text-foreground shadow-sm">
+          <div className="hidden lg:flex items-center gap-6">
+            <div className="flex items-center gap-1">
               {navigation.links.map((link) => (
-                // Normalize hash links to root to avoid keeping query params on nested routes
                 <Link
                   key={link.name}
                   href={link.href.startsWith("#") ? `/${link.href}` : link.href}
-                  className="px-2 py-1 rounded-full text-sm font-medium text-foreground/70 hover:text-foreground hover:bg-primary/10 transition-colors whitespace-nowrap"
+                  className="px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-widest text-secondary hover:text-white hover:bg-white/5 transition-all"
                 >
                   {labelFor(link.href, link.name)}
                 </Link>
               ))}
             </div>
-            <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs text-primary font-semibold border border-primary/20 whitespace-nowrap">
-                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                {navbarCopy.availability}
-              </span>
-              <Link
-                href="/#contact"
-                className="sheen inline-flex items-center gap-2 rounded-full bg-primary text-white px-4 py-2 text-sm font-semibold shadow-sm hover:-translate-y-0.5 transition-all whitespace-nowrap"
-              >
-                <Sparkles size={16} />
-                {navbarCopy.cta}
-              </Link>
+
+            <div className="h-4 w-px bg-white/10 mx-1" />
+
+            <div className="flex items-center gap-4">
               <button
                 onClick={toggleLanguage}
-                className="island px-3 py-1.5 rounded-full text-sm font-semibold text-foreground/80 hover:text-primary transition-colors border border-border bg-white"
-                aria-label="Cambia lingua"
+                className="w-9 h-9 flex items-center justify-center rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 text-xs font-bold text-secondary hover:text-white transition-all transform active:scale-95"
               >
-                {navbarCopy.langToggleLabel ?? (language === "ita" ? "EN" : "IT")}
+                {language === "ita" ? "EN" : "IT"}
               </button>
+              <Link
+                href="/#contact"
+                className="relative px-5 py-2 bg-white text-black rounded-xl font-bold text-xs transition-all hover:scale-105 active:scale-95 shadow-lg overflow-hidden group"
+              >
+                <span className="relative z-10">{navbarCopy.cta}</span>
+                <div className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+              </Link>
             </div>
           </div>
 
           {/* Mobile actions */}
-          <div className="lg:hidden flex items-center gap-2">
+          <div className="lg:hidden flex items-center gap-3">
             <button
               onClick={toggleLanguage}
-              className="island px-3 py-1.5 rounded-full text-xs font-semibold text-foreground/80 hover:text-primary transition-colors border border-border bg-white"
-              aria-label="Cambia lingua"
+              className="px-3 py-1.5 rounded-lg text-xs font-bold text-secondary border border-white/5 bg-white/5 active:scale-95 transition-transform"
             >
-              {navbarCopy.langToggleLabel ?? (language === "ita" ? "EN" : "IT")}
+              {language === "ita" ? "EN" : "IT"}
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-xl text-foreground hover:text-primary focus:outline-none island bg-white border border-border"
-              aria-expanded={isOpen}
+              className="p-2 rounded-xl border border-white/10 bg-white/5 text-white active:scale-95 transition-transform"
             >
-              {isOpen ? <X size={22} /> : <Menu size={22} />}
+              {isOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
         </div>
@@ -108,14 +108,18 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden glass-panel mx-4 mt-2 rounded-2xl border border-border bg-white/95 backdrop-blur-md shadow-lg">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <motion.div
+          initial={{ opacity: 0, y: -10, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          className="lg:hidden absolute top-24 left-4 right-4 glass-card p-6 rounded-3xl z-50 border border-white/10"
+        >
+          <div className="flex flex-col gap-3">
             {navigation.links.map((link) => (
               <Link
                 key={link.name}
                 href={link.href.startsWith("#") ? `/${link.href}` : link.href}
                 onClick={() => setIsOpen(false)}
-                className="block text-foreground/80 hover:text-foreground hover:bg-primary/10 px-3 py-2 rounded-md text-base font-semibold whitespace-nowrap"
+                className="px-4 py-3 rounded-xl bg-white/5 text-sm font-bold text-secondary hover:text-white transition-colors"
               >
                 {labelFor(link.href, link.name)}
               </Link>
@@ -123,12 +127,12 @@ export default function Navbar() {
             <Link
               href="/#contact"
               onClick={() => setIsOpen(false)}
-              className="block mt-2 text-center rounded-2xl bg-primary hover:bg-primary/90 px-3 py-3 font-semibold text-white shadow-sm whitespace-nowrap"
+              className="px-4 py-4 rounded-xl bg-primary text-white text-center font-bold text-sm shadow-glow"
             >
               {navbarCopy.cta}
             </Link>
           </div>
-        </div>
+        </motion.div>
       )}
     </nav>
   );

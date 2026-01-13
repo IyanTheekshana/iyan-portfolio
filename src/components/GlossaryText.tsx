@@ -81,7 +81,7 @@ function GlossaryTooltip({
   const tooltip = (
     <span
       ref={tooltipRef}
-      className="pointer-events-none fixed z-[99999] w-max max-w-xs rounded-xl border border-border bg-white/95 px-3 py-2 text-xs text-foreground shadow-xl ring-1 ring-primary/10 transition-all duration-150 ease-out"
+      className="pointer-events-none fixed z-[99999] w-max max-w-xs rounded-xl border border-white/10 bg-black/90 px-4 py-3 text-xs text-white shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] ring-1 ring-primary/20 backdrop-blur-md transition-all duration-150 ease-out"
       style={{
         top: coords.top,
         left: coords.left,
@@ -89,10 +89,10 @@ function GlossaryTooltip({
         transform: open ? "translateY(0)" : "translateY(4px)",
       }}
     >
-      <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-primary">
+      <span className="block text-[11px] font-bold uppercase tracking-[0.2em] text-primary mb-1">
         {term.label}
       </span>
-      <span className="mt-0.5 block leading-snug text-foreground/80">
+      <span className="block leading-relaxed text-white/90 font-light">
         {description}
       </span>
     </span>

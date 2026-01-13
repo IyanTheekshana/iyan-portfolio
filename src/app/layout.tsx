@@ -2,6 +2,8 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Providers from "@/components/Providers";
 import ScrollProgress from "@/components/ScrollProgress";
+import MagicBackground from "@/components/MagicBackground";
+import MagicCursor from "@/components/MagicCursor";
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Sora } from "next/font/google";
 import "./globals.css";
@@ -45,6 +47,8 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <Providers>
+          <MagicBackground />
+          <MagicCursor />
           <ScrollProgress />
           <Navbar />
           <main className="min-h-screen">{children}</main>
